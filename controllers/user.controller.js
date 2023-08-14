@@ -15,4 +15,19 @@ const Data = require('../models/data.modal')
     }
 }
 
-module.exports = createDatas
+const getData = async(req,res)=>{
+    try {
+        const datas = await Data.find({})
+        res.status(200).json({
+            success:true,
+            datas
+        })
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            error:error.message
+        })
+    }
+}
+
+module.exports = {createDatas,getData}

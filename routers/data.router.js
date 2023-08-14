@@ -1,8 +1,9 @@
 
 const router = require('express').Router()
-const createDatas = require('../controllers/user.controller')
+const { createDatas, getData } = require('../controllers/user.controller')
 
 
 router.post('/create',createDatas)
+router.get('/datas', getData )
 
 module.exports = router
